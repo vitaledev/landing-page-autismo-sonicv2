@@ -2,28 +2,31 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <!-- BLOQUEIO DE ZOOM: Essencial para evitar quebras de layout no telemóvel -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Super Sonic Kit & O Espectro</title>
     
+    <!-- Fontes: Retro (Press Start 2P) e Leitura (Roboto) -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Efeitos Sonoros -->
     <audio id="ringSound" src="assets/sonic-ring.mp3" preload="auto"></audio>
 
+    <!-- PLACAR (HUD) - Limpo (Apenas Anéis) -->
     <div class="hud-display animate-slide-down">
         <div class="score-box">
             <span class="hud-label">RINGS</span>
             <span id="ring-count" class="hud-value">0</span>
         </div>
-        <div class="score-box">
-            <span class="hud-label">TIME</span>
-            <span class="hud-value">∞</span>
-        </div>
+        <!-- Contador de TIME removido para limpar o visual -->
     </div>
 
+    <!-- Header / Hero Section (Capa) -->
     <header class="hero-section">
         
+        <!-- MENU DE NAVEGAÇÃO -->
         <nav class="main-nav animate-up">
             <a href="#about-autism" class="nav-link ring-hover">Sobre</a>
             <a href="#curiosidades" class="nav-link ring-hover">Ciência</a>
@@ -31,9 +34,11 @@
             <a href="#kit-section" class="nav-link ring-hover highlight">Loja</a>
         </nav>
 
+        <!-- Anel Escondido 1 -->
         <div class="collectible-ring ring-hover" style="top: 25%; left: 8%;"></div>
         
         <div class="container hero-grid">
+            <!-- Texto Principal -->
             <div class="hero-text animate-zoom">
                 <div class="hero-badge">✨ NOVA COLEÇÃO ✨</div>
                 <h1><span class="text-gradient">Gotta Go Fast</span><br>no Espectro!</h1>
@@ -45,15 +50,19 @@
                 </div>
             </div>
 
+            <!-- Imagem Principal -->
             <div class="hero-image-container animate-pop-in">
+                <!-- Certifique-se de ter a imagem 'hero-sonic.png' sem fundo na pasta assets -->
                 <img src="assets/hero-sonic.png" alt="Sonic Apresentando o Kit Autismo" class="hero-img floating-effect">
                 <div class="hero-circle-glow"></div>
             </div>
         </div>
 
+        <!-- Onda Decorativa -->
         <div class="hero-wave"></div>
     </header>
 
+    <!-- Seção 1: Sobre o Autismo -->
     <section id="about-autism" class="info-section blue-zone">
          <div class="collectible-ring ring-hover" style="bottom: 15%; right: 10%;"></div>
 
@@ -72,28 +81,32 @@
         </div>
     </section>
 
+    <!-- Seção 2: Curiosidades -->
     <section id="curiosidades" class="info-section gold-zone">
         <div class="container">
             <h2 class="section-title dark-text">A Ciência da Conexão</h2>
             <p class="section-intro dark-text">Por que crianças no espectro se conectam tanto com o Sonic?</p>
             
             <div class="facts-grid detailed-grid">
+                <!-- Fato 1 -->
                 <div class="fact-card ring-hover animate-up">
                     <div class="card-icon">🧠</div>
                     <div class="card-content">
                         <h4>O Poder do Hiperfoco</h4>
-                        <p>O vasto universo do Sonic (jogos, HQs, filmes) é um terreno fértil para o Hiperfoco, aumentando a autoestima e competência.</p>
+                        <p>O vasto universo do Sonic (jogos, HQs, filmes) é um terreno fértil para o Hiperfoco, aumentando a autoestima e competência da criança.</p>
                     </div>
                 </div>
 
+                <!-- Fato 2 -->
                 <div class="fact-card ring-hover animate-up delay-1">
                     <div class="card-icon">⚖️</div>
                     <div class="card-content">
                         <h4>Senso de Justiça</h4>
-                        <p>Sonic luta contra Eggman com um código moral rígido. Isso reflete a visão lógica e honesta de mundo dos autistas.</p>
+                        <p>Sonic luta contra Eggman com um código moral rígido. Isso reflete a visão lógica e honesta de mundo que muitos autistas possuem.</p>
                     </div>
                 </div>
 
+                <!-- Fato 3 -->
                 <div class="fact-card ring-hover animate-up delay-2">
                     <div class="card-icon">🛡️</div>
                     <div class="card-content">
@@ -102,14 +115,16 @@
                     </div>
                 </div>
 
+                <!-- Fato 4 -->
                 <div class="fact-card ring-hover animate-up">
                     <div class="card-icon">✨</div>
                     <div class="card-content">
                         <h4>Visual Stimming</h4>
-                        <p>A velocidade, cores saturadas e giros oferecem estímulo visual satisfatório (Stimming), ajudando na autorregulação.</p>
+                        <p>A velocidade, cores saturadas e giros oferecem estímulo visual satisfatório (Stimming), ajudando na autorregulação em momentos de estresse.</p>
                     </div>
                 </div>
 
+                <!-- Fato 5 -->
                 <div class="fact-card ring-hover animate-up delay-1">
                     <div class="card-icon">🤝</div>
                     <div class="card-content">
@@ -118,17 +133,19 @@
                     </div>
                 </div>
 
+                <!-- Fato 6 -->
                 <div class="fact-card ring-hover animate-up delay-2">
                     <div class="card-icon">🗣️</div>
                     <div class="card-content">
                         <h4>Comunicação Clara</h4>
-                        <p>Sem ironias complexas. Sonic é literal, leal e direto ao ponto. Isso gera identificação imediata e conforto.</p>
+                        <p>Sem ironias complexas. Sonic é literal, leal e direto ao ponto. Isso gera identificação imediata e conforto na comunicação.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Seção: Video Zone -->
     <section id="video-zone" class="video-section special-stage-bg">
         <div class="container">
              <h2 class="section-title white-text animate-bounce">Special Stage: Zona de Vídeo</h2>
@@ -154,23 +171,28 @@
         </div>
     </section>
 
+    <!-- Seção: Destaque do Kit (Showcase) -->
     <section id="kit-section" class="product-showcase-section" style="position: relative;">
          <div class="collectible-ring ring-hover" style="top: 10%; left: 15%;"></div>
 
         <div class="container">
             <h2 class="section-title sonic-blue">O Kit Super Sônico</h2>
             <div class="main-kit-display animate-zoom">
+                <!-- Imagem do Kit -->
                 <img src="assets/kit-completo.png" alt="Kit Escolar e Autismo Sonic Completo">
                 
+                <!-- Bolha de Preço Flutuante -->
                 <div class="kit-price-box animate-bounce">
                     <span class="price-label">Kit Completo</span>
-                    <span class="price-value">R$ 299,90</span>
+                    <span class="price-value">R$299,90</span>
+                    <!-- Texto curto "COMPRAR" para não quebrar no mobile -->
                     <button class="sonic-button buy-button pulse-effect ring-hover">COMPRAR</button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Seção: Itens Individuais -->
     <section class="individual-items-section">
         <div class="container">
             <h2 class="section-title white-text">Arsenal de Regulação</h2>
@@ -206,6 +228,7 @@
         </div>
     </section>
 
+    <!-- Barra de Confiança -->
     <section class="trust-bar-section">
         <div class="container trust-grid">
             <div class="trust-item">
@@ -232,6 +255,7 @@
         </div>
     </section>
 
+    <!-- Rodapé -->
     <footer>
         <div class="container footer-content">
             <p>© 2024 Super Sonic Kit. Gotta Go Fast!</p>
@@ -239,6 +263,7 @@
         </div>
     </footer>
 
+    <!-- Modal de Vídeo -->
     <div id="videoModalOverlay" class="modal-overlay">
         <div class="modal-window animate-modal-open">
             <button id="closeModalBtn" class="sonic-button close-btn ring-hover">FECHAR</button>
@@ -248,25 +273,7 @@
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="script.js"></script>
-    <script>
-        // Script Rápido para os Anéis
-        let rings = 0;
-        const ringCounter = document.getElementById('ring-count');
-        const ringsInPage = document.querySelectorAll('.collectible-ring');
-        
-        ringsInPage.forEach(ring => {
-            ring.addEventListener('click', () => {
-                rings++;
-                ringCounter.innerText = rings;
-                ringCounter.style.transform = "scale(1.5)";
-                ringCounter.style.color = "#ffff00";
-                setTimeout(() => {
-                    ringCounter.style.transform = "scale(1)";
-                    ringCounter.style.color = "white";
-                }, 200);
-            });
-        });
-    </script>
 </body>
 </html>

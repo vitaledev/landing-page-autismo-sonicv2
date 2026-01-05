@@ -8,16 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Função segura para tocar som (evita erros de bloqueio do navegador)
     const playRingSound = () => {
         if (ringSound) {
-            ringSound.currentTime = 0; // Reinicia o áudio se já estiver tocando
+            ringSound.currentTime = 0; // Reinicia o áudio se já estiver a tocar
             ringSound.volume = 0.3;    // Volume agradável (30%)
             // Tenta tocar
             ringSound.play().catch(error => {
-                console.log("Autoplay de áudio bloqueado até interação do usuário.");
+                console.log("Autoplay de áudio bloqueado até interação do utilizador.");
             });
         }
     };
 
-    // Adiciona som suave ao passar o mouse nos botões principais (PC apenas)
+    // Adiciona som suave ao passar o rato nos botões principais (PC apenas)
     if (window.matchMedia("(min-width: 992px)").matches) {
         const hoverElements = document.querySelectorAll('.ring-hover');
         hoverElements.forEach(el => {
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // 1. Toca o som clássico
             playRingSound();
 
-            // 2. Animação visual do anel (some subindo e desaparece)
+            // 2. Animação visual do anel (some a subir e desaparece)
             this.classList.add('collected');
 
             // 3. Atualiza o Placar (HUD)
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
         closeModalBtn.addEventListener('click', closeModal);
     }
 
-    // Fechar clicando no fundo escuro (fora do vídeo)
+    // Fechar a clicar no fundo escuro (fora do vídeo)
     if (modalOverlay) {
         modalOverlay.addEventListener('click', (e) => {
             if (e.target === modalOverlay) {
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Fechar apertando a tecla ESC (Acessibilidade)
+    // Fechar a apertar a tecla ESC (Acessibilidade)
     document.addEventListener('keydown', (e) => {
         if (e.key === "Escape" && modalOverlay && modalOverlay.classList.contains('active')) {
             closeModal();

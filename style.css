@@ -29,7 +29,7 @@ body {
     color: var(--text-light); 
     overflow-x: hidden; 
     line-height: 1.5;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent; /* Remove flash azul no toque mobile */
 }
 
 .container { 
@@ -76,7 +76,7 @@ h2.section-title {
 .sonic-blue { color: var(--sonic-blue); }
 
 /* =========================================
-   3. HUD & MENU (CORREÇÃO: CENTRALIZAÇÃO)
+   3. HUD & MENU (CENTRALIZADO)
    ========================================= */
 .hud-display {
     position: fixed; top: 20px; left: 25px; z-index: 200;
@@ -84,28 +84,29 @@ h2.section-title {
     font-family: var(--font-retro); pointer-events: none;
 }
 .score-box { 
-    background: rgba(0, 0, 0, 0.6); padding: 8px 12px; border-radius: 4px;
+    background: rgba(0, 0, 0, 0.7); padding: 8px 12px; border-radius: 6px;
     border-left: 4px solid var(--sonic-gold); backdrop-filter: blur(4px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 .hud-label { color: var(--sonic-red); margin-right: 10px; font-size: 0.8rem; }
 .hud-value { color: white; font-size: 0.9rem; }
 
-/* MENU CENTRALIZADO NO MEIO DA TELA */
+/* MENU CENTRALIZADO */
 .main-nav {
     position: absolute; 
     top: 30px; 
-    left: 50%; /* Ponto de partida no meio */
-    transform: translateX(-50%); /* Recua 50% do próprio tamanho para centralizar exato */
-    background: rgba(255, 255, 255, 0.1); 
+    left: 50%; 
+    transform: translateX(-50%); /* Centraliza perfeitamente */
+    background: rgba(255, 255, 255, 0.15); 
     backdrop-filter: blur(15px);
     padding: 10px 30px; 
     border-radius: 50px; 
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.4);
     display: flex; 
-    gap: 30px; 
+    gap: 25px; 
     z-index: 100;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    width: max-content; /* Garante que o menu não estique para a direita */
+    width: max-content;
 }
 
 .nav-link {
@@ -113,7 +114,7 @@ h2.section-title {
     transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px;
     padding: 8px 15px; border-radius: 20px;
 }
-.nav-link:hover { background: white; color: var(--sonic-blue); box-shadow: 0 0 15px rgba(255,255,255,0.5); }
+.nav-link:hover { background: white; color: var(--sonic-blue); box-shadow: 0 0 15px rgba(255,255,255,0.6); }
 .nav-link.highlight { background: var(--sonic-gold); color: var(--sonic-blue); box-shadow: 0 0 15px var(--sonic-gold); }
 
 /* =========================================
@@ -144,17 +145,17 @@ h2.section-title {
 }
 .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
 
-/* Botões Gerais */
+/* Botões */
 .sonic-button, .secondary-button { white-space: nowrap; }
 
 .sonic-button {
     padding: 16px 32px; background: var(--sonic-red);
     color: white; font-family: var(--font-retro); font-size: 0.9rem;
     text-decoration: none; border-radius: 50px; border: 3px solid rgba(255,255,255,0.2);
-    box-shadow: 0 10px 20px rgba(231, 29, 42, 0.4); 
-    transition: all 0.3s; cursor: pointer; position: relative; overflow: hidden;
+    box-shadow: 0 8px 0 #990000; /* Sombra sólida estilo botão de arcade */
+    transition: all 0.1s; cursor: pointer; position: relative; overflow: hidden;
 }
-.sonic-button:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(231, 29, 42, 0.6); }
+.sonic-button:active { transform: translateY(4px); box-shadow: 0 4px 0 #990000; }
 
 .secondary-button {
     padding: 16px 32px; background: rgba(255,255,255,0.1); color: white;
@@ -227,7 +228,7 @@ h2.section-title {
 }
 
 /* =========================================
-   6. SHOWCASE (BOLHA DE PREÇO)
+   6. SHOWCASE & LOJA
    ========================================= */
 .product-showcase-section {
     padding: 120px 0; 
@@ -237,6 +238,7 @@ h2.section-title {
 .main-kit-display { position: relative; max-width: 800px; margin: 0 auto; }
 .main-kit-display img { width: 100%; filter: drop-shadow(0 25px 40px rgba(0,0,0,0.3)); }
 
+/* BOLHA DE PREÇO */
 .kit-price-box {
     position: absolute; bottom: -30px; right: -20px; 
     background: var(--sonic-blue);
@@ -246,7 +248,11 @@ h2.section-title {
     width: 260px; height: 260px; transform: rotate(8deg);
     box-shadow: 0 15px 30px rgba(0,0,0,0.3); z-index: 10;
 }
-.price-value { font-family: var(--font-modern); font-weight: 900; font-size: 2.5rem; color: white; margin: 10px 0; }
+.price-value { 
+    font-family: var(--font-modern); font-weight: 900; 
+    font-size: 2.5rem; color: white; margin: 10px 0;
+    white-space: nowrap; /* IMPEDE QUEBRA DE LINHA NO PREÇO */
+}
 
 .individual-items-section { padding: 100px 0; background: #004499; }
 .items-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
@@ -280,10 +286,13 @@ footer { background: #000; padding: 40px 0; text-align: center; color: #555; fon
     position: absolute; width: 50px; height: 50px; border: 6px solid var(--sonic-gold);
     border-radius: 50%; box-shadow: 0 0 15px var(--sonic-gold); 
     animation: float 2s infinite ease-in-out; cursor: pointer; z-index: 50;
+    transition: 0.2s;
 }
+.collectible-ring:hover { background: rgba(255,204,0,0.2); transform: scale(1.1); }
 .collectible-ring.collected { animation: ringCollected 0.5s forwards !important; }
 
 @keyframes float { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-15px);} }
+@keyframes pulseButton { 0% {box-shadow: 0 0 0 0 rgba(231, 29, 42, 0.7);} 70% {box-shadow: 0 0 0 15px rgba(231, 29, 42, 0);} 100% {box-shadow: 0 0 0 0 rgba(231, 29, 42, 0);} }
 @keyframes pulseGlow { from { opacity: 0.5; transform: translate(-50%, -50%) scale(1); } to { opacity: 1; transform: translate(-50%, -50%) scale(1.1); } }
 @keyframes ringCollected { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2.5); opacity: 0; display: none; } }
 
@@ -314,7 +323,7 @@ footer { background: #000; padding: 40px 0; text-align: center; color: #555; fon
     .hero-image-container { order: 1; }
     .hero-buttons { justify-content: center; } 
     .detailed-grid { grid-template-columns: repeat(2, 1fr); }
-    .main-nav { display: none; } /* Menu flutuante oculto em telas menores */
+    .main-nav { display: none; } /* Ocultar em telas menores se desejar ou transformar em menu hambúrguer */
 }
 
 @media (max-width: 768px) {
@@ -343,14 +352,20 @@ footer { background: #000; padding: 40px 0; text-align: center; color: #555; fon
         margin: -40px auto 0; right: auto; bottom: auto; transform: none; 
     }
     
-    .price-value { font-size: 2rem; margin: 5px 0 10px 0; }
+    .price-value { 
+        font-size: 2rem; 
+        margin: 5px 0 10px 0; 
+        /* Mantém o preço na mesma linha sempre */
+    }
     
-    /* Regra específica para o botão dentro da bolha no celular */
+    /* ESTILO ESPECÍFICO PARA O BOTÃO DENTRO DA BOLHA NO CELULAR */
     .kit-price-box .sonic-button {
-        padding: 10px 20px; /* Padding reduzido */
-        font-size: 0.8rem;  /* Fonte menor */
-        width: auto;        
-        min-width: 120px;   /* Largura mínima confortável */
+        padding: 8px 20px;  /* Reduz padding vertical */
+        font-size: 0.85rem; /* Reduz fonte levemente */
+        width: auto;        /* Não força 100% de largura */
+        min-width: 120px;   
+        display: inline-block;
+        white-space: nowrap; /* Garante que 'COMPRAR' fique numa linha */
     }
     
     .trust-grid { flex-direction: column; align-items: center; text-align: center; }
